@@ -1,4 +1,4 @@
-package dev.java10x.CadastroDeItem;
+package dev.java10x.CadastroDeItem.Itens.Controller;
 
 import org.springframework.web.bind.annotation.*;
 

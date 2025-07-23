@@ -1,7 +1,9 @@
-package dev.java10x.CadastroDeItem;
+package dev.java10x.CadastroDeItem.Itens.Model;
 
+import dev.java10x.CadastroDeItem.Detalhes.Categorias.Model.CategoriasModel;
 import jakarta.persistence.*;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tb_itens")
@@ -12,6 +14,11 @@ public class ItemModel {
     private String descricao;
     private String unidade;
     private int quantidade;
+    private List<CategoriasModel> categorias;
+
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private CategoriasModel categoria;
 
     public ItemModel(){}
     public ItemModel(String descricao_, String unidade_, int quantidade_){
