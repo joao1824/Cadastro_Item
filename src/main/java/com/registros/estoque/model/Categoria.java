@@ -1,5 +1,7 @@
 package com.registros.estoque.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -13,7 +15,8 @@ public class Categoria {
     private int id_categoria;
     private String descricao;
 
-    @OneToMany
+    @OneToMany(mappedBy = "categoria")
+    @JsonManagedReference
     private List<Item> itens;
 
     public Categoria(){}
@@ -21,25 +24,27 @@ public class Categoria {
         this.descricao = descricao_;
     }
 
-    public void setDescricao(String descricao_){
-        this.descricao = descricao_;
+    public int getId_categoria() {
+        return id_categoria;
     }
 
-    public void setItens(List<Item> itens_){
-        this.itens = itens_;
+    public void setId_categoria(int id_categoria) {
+        this.id_categoria = id_categoria;
     }
 
-    public String getDescricao(){
-        return this.descricao;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public int getId_categoria(){
-        return this.id_categoria;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public List<Item> getItens() {
-        return this.itens;
+        return itens;
     }
 
-
+    public void setItens(List<Item> itens) {
+        this.itens = itens;
+    }
 }

@@ -1,10 +1,12 @@
 package com.registros.estoque.model;
 
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import org.antlr.v4.runtime.misc.NotNull;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnNotWarDeployment;
+
 
 import java.util.List;
+
 
 @Entity(name = "unidade")
 @Table(name = "unidade")
@@ -15,7 +17,8 @@ public class Unidade {
     private int id_unidade;
     private String descricao;
 
-    @OneToMany
+    @OneToMany(mappedBy = "unidade")
+    @JsonManagedReference
     private List<Item> itens;
 
     public Unidade(){}
@@ -23,24 +26,27 @@ public class Unidade {
         this.descricao = descricao;
     }
 
-    public void setDescricao(String descricao_){
-        this.descricao = descricao_;
+    public int getId_unidade() {
+        return id_unidade;
     }
 
-    public void setItens(List<Item> itens_){
-        this.itens = itens_;
+    public void setId_unidade(int id_unidade) {
+        this.id_unidade = id_unidade;
     }
 
-    public String getDescricao(){
-        return this.descricao;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public int getId_unidade(){
-        return this.id_unidade;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public List<Item> getItens() {
-        return this.itens;
+        return itens;
     }
 
+    public void setItens(List<Item> itens) {
+        this.itens = itens;
+    }
 }

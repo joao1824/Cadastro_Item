@@ -1,13 +1,13 @@
 -- Tabela de unidades
 CREATE TABLE unidade (
     id INT PRIMARY KEY IDENTITY(1,1),
-    nome VARCHAR(50) NOT NULL
+    descricao VARCHAR(50) NOT NULL
 );
 
 -- Tabela de categorias
 CREATE TABLE categoria (
     id INT PRIMARY KEY IDENTITY(1,1),
-    nome VARCHAR(50) NOT NULL
+    descricao VARCHAR(50) NOT NULL
 );
 
 -- Tabela de itens
@@ -24,21 +24,28 @@ CREATE TABLE item (
 
 
 -- Inserts de exemplo na tabela unidade
-INSERT INTO unidade (nome) VALUES ('Unidade');
-INSERT INTO unidade (nome) VALUES ('Caixa');
-INSERT INTO unidade (nome) VALUES ('Litro');
+INSERT INTO unidade (descricao) VALUES ('Unidade');
+
+INSERT INTO unidade (descricao) VALUES ('Caixa');
+
+INSERT INTO unidade (descricao) VALUES ('Litro');
 
 -- Inserts de exemplo na tabela categoria
-INSERT INTO categoria (nome) VALUES ('Alimento');
-INSERT INTO categoria (nome) VALUES ('Limpeza');
-INSERT INTO categoria (nome) VALUES ('Higiene');
+INSERT INTO categoria (descricao) VALUES ('Alimento');
+
+INSERT INTO categoria (descricao) VALUES ('Limpeza');
+
+INSERT INTO categoria (descricao) VALUES ('Higiene');
 
 -- Inserts de exemplo na tabela int (itens)
 INSERT INTO item (descricao, quantidade, id_unidade, id_categoria)
-VALUES ('Arroz 5kg', 20, 2, 1); -- Caixa, Alimento
+VALUES ('Arroz 5kg', 20, 2, 1); 
 
 INSERT INTO item (descricao, quantidade, id_unidade, id_categoria)
-VALUES ('Sabão líquido', 15, 3, 2); -- Litro, Limpeza
+VALUES ('Sabão líquido', 15, 3, 2); 
 
-INSERT INTO int (descricao, quantidade, id_unidade, id_categoria)
-VALUES ('Papel higiênico', 50, 1, 3); -- Unidade, Higiene
+INSERT INTO item (descricao, quantidade, id_unidade, id_categoria)
+VALUES ('Papel higiênico', 50, 1, 3); 
+
+
+SELECT * FROM item
